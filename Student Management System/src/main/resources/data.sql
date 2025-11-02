@@ -1,0 +1,8 @@
+-- Seed roles only if they do not already exist
+INSERT INTO role(name)
+SELECT 'ROLE_STUDENT'
+WHERE NOT EXISTS (SELECT 1 FROM role WHERE name = 'ROLE_STUDENT');
+
+INSERT INTO role(name)
+SELECT 'ROLE_TEACHER'
+WHERE NOT EXISTS (SELECT 1 FROM role WHERE name = 'ROLE_TEACHER');
